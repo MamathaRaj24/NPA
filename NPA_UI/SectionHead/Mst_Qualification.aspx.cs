@@ -34,7 +34,7 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
             }
         }
         PrevBrowCache.enforceNoCache();
-        if (Session["UserId"] != null && Session["RoleID"].ToString() == "1")
+        if (Session["UserId"] != null && Session["RoleID"].ToString() == "5")
         {
             user = Session["UserId"].ToString();
             con = Session["ConnKey"].ToString();
@@ -93,20 +93,25 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
             check();
             if (validate())
             {
-                if (txtQualification.Text != "")
+                if (txtQualification.Text.Trim() != "")
                 {
-                    objBE.Qualification = txtQualification.Text;
+                    objBE.Qualification = txtQualification.Text.Trim();
                 }
-                
+                objBE.Level = txtLevel.Text.Trim();
                 objBE.Action = "I";
                
                 dt = ObjDL.Qualification_Master(objBE, con);
                 if (dt.Rows.Count > 0)
                     cf.ShowAlertMessage(dt.Rows[0][0].ToString());
                 else
+                {
+                    txtQualification.Text = "";
+                    txtLevel.Text = "";
                     cf.ShowAlertMessage("Saved Successfully");
-                BindGrid();
-                txtQualification.Text = "";
+                    BindGrid();
+                }
+                
+               
                
             }
         }
@@ -124,10 +129,10 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
             check();
             if (validate())
             {
-               
-                objBE.Qualificationcode = lblQualId.Text;
-                objBE.Qualification = txtQualification.Text;
-                
+
+                objBE.Qualificationcode = lblQualId.Text.Trim();
+                objBE.Qualification = txtQualification.Text.Trim();
+                objBE.Level = txtLevel.Text.Trim();
                 objBE.Action = "U";
                 dt = ObjDL.Qualification_Master(objBE, con);
                 if (dt.Rows.Count > 0)
@@ -142,7 +147,7 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
                     BtnSave.Visible = true;
                     BindGrid();
                     txtQualification.Text = "";
-                    
+                    txtLevel.Text = "";
                 }
             }
         }
@@ -162,7 +167,7 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
                 GridViewRow gvrow = (GridViewRow)((Control)e.CommandSource).NamingContainer;
                 lblQualId.Text = ((Label)(gvrow.FindControl("lblQualificationId"))).Text;
                 txtQualification.Text = ((Label)(gvrow.FindControl("lblQualificationName"))).Text;
-                
+                txtLevel.Text = ((Label)(gvrow.FindControl("lblLevel"))).Text;
                 btnUpdate.Visible = true;
                 BtnSave.Visible = false;
 
@@ -211,6 +216,13 @@ public partial class Admin_Mst_Qualification : System.Web.UI.Page
         {
             cf.ShowAlertMessage("Please Enter Qualification");
             txtQualification.Focus();
+            return false;
+
+        }
+        if (txtLevel.Text.Trim() == "")
+        {
+            cf.ShowAlertMessage("Please Enter Level");
+            txtLevel.Focus();
             return false;
 
         }

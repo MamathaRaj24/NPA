@@ -1,13 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Mst_Qualification.aspx.cs" Inherits="Admin_Mst_Qualification" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Mst_Qualification.aspx.cs"
+    Inherits="Admin_Mst_Qualification" %>
 
 <!DOCTYPE html>
-<%@ Register TagPrefix="Menu" TagName="menu" Src="~/Admin/AdminMenu.ascx" %>
+<%@ Register TagPrefix="Menu" TagName="menu" Src="~/SectionHead/Menu.ascx" %>
 <%@ Register TagPrefix="Footer" TagName="footer" Src="../Footer.ascx" %>
 <%@ Register TagPrefix="Header_New" TagName="header" Src="~/Header_New.ascx" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <title>SVPNPA</title>
+    <title>SVPNPA</title>
     <link rel="icon" href="../Assests/images/sv.png" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="../Assests/Css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -51,9 +52,8 @@
         }
     </script>
 </head>
-
 <body>
-   <form id="form1" runat="server">
+    <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <Menu:menu ID="menu" runat="server" />
@@ -100,7 +100,18 @@
                                         </ajaxToolkit:FilteredTextBoxExtender>
                                         <asp:Label ID="lblQualId" runat="server" Visible="false"></asp:Label>
                                     </div>
-                                    
+                                    <div class="col col-md-2">
+                                        <label class=" form-control-label">
+                                            Qualification Level</label></div>
+                                    <div class="col-md-4">
+                                        <asp:TextBox ID="txtLevel" CssClass="form-control" autocomplete="Off" MaxLength="2"
+                                            runat="server">
+                                        </asp:TextBox>
+                                        <ajaxToolkit:FilteredTextBoxExtender ID="txtLevel_FilteredTextBoxExtender1" runat="server"
+                                            BehaviorID="txtLevel_FilteredTextBoxExtender" FilterType="Numbers" TargetControlID="txtLevel">
+                                        </ajaxToolkit:FilteredTextBoxExtender>
+                                        <asp:Label ID="Label1" runat="server" Visible="false"></asp:Label>
+                                    </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-12 text-center">
@@ -126,7 +137,12 @@
                                                     </asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                           
+                                            <asp:TemplateField HeaderText="Level">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblLevel" runat="server" Text='<%# Bind("Level") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnedit" runat="server" CommandName="edt" Text="Edit" />

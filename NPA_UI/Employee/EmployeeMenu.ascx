@@ -21,6 +21,7 @@
                 <li><a href="Cancel_LeaveDetails.aspx"><i class=" menu-icon fa fa-puzzle-piece"></i>Cancel Leave </a></li>
                 <li><a href="Ext_LeaveDetails.aspx"><i class=" menu-icon fa fa-puzzle-piece"></i>Extension of Leave </a></li>
                 <li><a href="Join.aspx"><i class=" menu-icon fa fa-puzzle-piece"></i>Joining Report </a></li>
+                 <li><a href="WorkUpdates.aspx"><i class=" menu-icon fa fa-puzzle-piece"></i>Work Updates</a></li>
 
 
                <%-- <li class="menu-item-has-children dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"

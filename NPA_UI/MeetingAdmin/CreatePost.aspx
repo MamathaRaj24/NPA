@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreatePost.aspx.cs" Inherits="SectionHead_Application" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CreatePost.aspx.cs" Inherits="CreatePost" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register TagPrefix="Menu" TagName="menu" Src="~/SectionHead/Menu.ascx" %>
@@ -22,9 +22,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet'
         type='text/css' />
     <script type="text/javascript">
-        history.pushState(null, null, 'Application.aspx');
+        history.pushState(null, null, 'CreatePost.aspx');
         window.addEventListener('popstate', function (event) {
-            history.pushState(null, null, 'Application.aspx');
+            history.pushState(null, null, 'CreatePost.aspx');
         });
 
         function DisableBackButton() {
@@ -100,13 +100,9 @@
                                             Name of the Post</label>
                                     </div>
                                     <div class=" col-md-3">
-                                        <asp:TextBox ID="txtPostName" CssClass="form-control" autocomplete="Off" MaxLength="150"
+                                        <asp:TextBox ID="txtPostName" CssClass="form-control" autocomplete="Off" MaxLength="50"
                                             runat="server" placeholder="Enter Post Name">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtPostName_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtPostName_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtPostName" ValidChars=" .,()-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                     <div class="col col-md-2">
                                         <label class=" form-control-label">
@@ -126,10 +122,6 @@
                                         <asp:TextBox ID="txtPostDes" CssClass="form-control" TextMode="MultiLine" autocomplete="Off"
                                             MaxLength="1000" runat="server" placeholder="Enter Post Description">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtPostDes_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtPostDes_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtPostDes" ValidChars=" .,()-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
                                 <div class="row form-group text-left">
@@ -141,10 +133,6 @@
                                         <asp:TextBox ID="txtfrom" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder="EffectiveFrom">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtfrom_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtfrom_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtfrom" ValidChars="/-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                     <div class="col col-md-2">
                                         <label class="form-control-label text-left">
@@ -154,10 +142,6 @@
                                         <asp:TextBox ID="txtTo" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder="Effective To">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtTo_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtTo_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtTo" ValidChars="/-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
                                 <div class="row form-group text-left">
@@ -169,23 +153,15 @@
                                         <asp:TextBox ID="txtnop" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder="No.Of Posts">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtnop_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtnop_FilteredTextBoxExtender" FilterType="Numbers,custom"
-                                            TargetControlID="txtnop" ValidChars=" .,()-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                     <div class="col col-md-2">
                                         <label class="form-control-label text-left">
                                             Placement Location</label>
                                     </div>
                                     <div class=" col-md-3">
-                                        <asp:TextBox ID="txtLocation" CssClass="form-control" autocomplete="Off" runat="server" MaxLength="250"
+                                        <asp:TextBox ID="txtLocation" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder="Placement Location">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtLocation_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtLocation_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtLocation" ValidChars=" ">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
                                 <div class="row form-group text-left">
@@ -197,10 +173,6 @@
                                         <asp:TextBox ID="txtsal" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder="Salary Per Month">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtsal_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtsal_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtsal" ValidChars=" .,()-">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                     <div class="col col-md-2">
                                         <label class="form-control-label text-left">
@@ -210,10 +182,6 @@
                                         <asp:TextBox ID="txtage" CssClass="form-control" autocomplete="Off" runat="server"
                                             placeholder=" Age Limit">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtage_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtage_FilteredTextBoxExtender" FilterType="Numbers,custom"
-                                            TargetControlID="txtage" ValidChars="">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
                                 <div class="row form-group text-left">
@@ -222,11 +190,11 @@
                                             Application Fee</label>
                                     </div>
                                     <div class=" col-md-3">
-                                        <asp:RadioButtonList ID="rblFee" runat="server" RepeatDirection="Horizontal">
+                                        <asp:RadioButtonList ID="rblFee" runat="server" RepeatDirection="Horizontal" 
+                                            AutoPostBack="true" onselectedindexchanged="rblFee_SelectedIndexChanged">
                                             <asp:ListItem Text="Applicable" Value="1" />
                                             <asp:ListItem Text="Not Applicable" Selected="True" Value="0" />
                                         </asp:RadioButtonList>
-
                                     </div>
                                     <div class="col col-md-2">
                                         <label class="form-control-label text-left">
@@ -236,13 +204,8 @@
                                         <asp:TextBox ID="txtFee" CssClass="form-control" autocomplete="Off" runat="server"
                                             Enabled="false" placeholder=" Fee (In Rs.)">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtFee_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtFee_FilteredTextBoxExtender" FilterType="Numbers,custom"
-                                            TargetControlID="txtFee" ValidChars=". ">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
-                               
                                 <div class="row form-group text-left">
                                     <div class="col col-md-2">
                                         <label class="form-control-label text-left">
@@ -273,22 +236,36 @@
                                         <asp:TextBox ID="txtExp" CssClass="form-control" autocomplete="Off" MaxLength="250"
                                             Enabled="false" runat="server" placeholder="Enter  Experience Details" TextMode="MultiLine">
                                         </asp:TextBox>
-                                         <ajaxToolkit:FilteredTextBoxExtender ID="txtExp_FilteredTextBoxExtender"
-                                            runat="server" BehaviorID="txtExp_FilteredTextBoxExtender" FilterType="UppercaseLetters, LowercaseLetters,Numbers,custom"
-                                            TargetControlID="txtExp" ValidChars=" .,()-:">
-                                        </ajaxToolkit:FilteredTextBoxExtender>
                                     </div>
                                 </div>
-                                 <div class="row form-group text-left">
+                                <div class="row form-group text-left">
                                     <div class="col col-md-2">
                                         <label class=" form-control-label">
-                                            Require Photo & Siganture Upload</label>
+                                            Require Photo
+                                        </label>
                                     </div>
                                     <div class="col-md-3">
                                         <asp:RadioButtonList ID="rblphoto" runat="server" RepeatDirection="Horizontal">
                                             <asp:ListItem Value="1">Yes</asp:ListItem>
                                             <asp:ListItem Value="0">No</asp:ListItem>
                                         </asp:RadioButtonList>
+                                    </div>
+                                    <div class="col col-md-2">
+                                        <label class=" form-control-label">
+                                            Require Siganture Upload</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <asp:RadioButtonList ID="rblSign" runat="server" RepeatDirection="Horizontal">
+                                            <asp:ListItem Value="1">Yes</asp:ListItem>
+                                            <asp:ListItem Value="0">No</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </div>
+                                </div>
+                                <div class="row form-group text-left">
+                                    <div class="col col-md-12 text-left">
+                                        <label class=" form-control-label">
+                                            <asp:CheckBox ID="chk" runat="server" Font-Bold="true" Font-Size="Large" Text="Please bring original certificates for the interview" />
+                                        </label>
                                     </div>
                                 </div>
                             </div>

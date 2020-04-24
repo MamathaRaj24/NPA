@@ -12,7 +12,7 @@ public partial class Header_New : System.Web.UI.UserControl
         if (!IsPostBack)
         {
             imgStateLogo.ImageUrl = "Assests/images/sv.png";
-            imglogo.ImageUrl = "Assests/images/logo.jpg";
+            imglogo.ImageUrl = "Assests/images/sv.png";
         }
     }
 }

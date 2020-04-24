@@ -89,7 +89,7 @@ public partial class Login : System.Web.UI.Page
                     string Type = dtLogin.Rows[0]["Type"].ToString();
                     Session["Gender"] = dtLogin.Rows[0]["Gender"].ToString();
                     Session["UserId"] = dtLogin.Rows[0]["Sno"].ToString();
-
+                    Session["EmpId"] = Empid;
                     string myval = ShaEncrypt(ViewState["KeyGenerator"].ToString());
                     string value = ShaEncrypt(password.ToLower() + myval.ToLower());
 
@@ -150,6 +150,10 @@ public partial class Login : System.Web.UI.Page
                         if (dtLogin.Rows[0]["Role"].ToString() == "10")
                         {
                             Response.Redirect("~/AdminSection/ViewLeaveDtls.aspx", false);
+                        }
+                        if (dtLogin.Rows[0]["Role"].ToString() == "11")
+                        {
+                            Response.Redirect("~/MeetingAdmin/AddMeeting.aspx", false);
                         }
                     }
                     else
